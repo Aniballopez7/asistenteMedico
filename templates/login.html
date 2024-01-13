@@ -1,0 +1,39 @@
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <div class="wrapper">
+      {% if error_message %}
+      <div class="alert" role="alert">{{ error_message }}</div>
+      {% endif %}
+      <form method="post" class="form">
+        {% csrf_token %}
+        <h1 class="title">Inicio</h1>
+        <div class="inp">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="input"
+            placeholder="Usuario"
+          />
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="inp">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="input"
+            placeholder="Contraseña"
+          />
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <button class="submit">Iniciar Sesión</button>
+        <p class="footer">
+          ¿No tienes una cuenta?
+          <a href="register" class="link">Por favor, Registrate</a>
+        </p>
+      </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="logo-container">
+    <img src="{% static 'medicina.png' %}" class="img"/>
+  </div>
+  <div class="chat-box">
+    <header class="chat-box-header">
+      Medic Chat IA
+      <div>
+        {%if user.is_authenticated%}
+        <div><a class='linkA'href='logout'>Cerrar Sesion<a/>
+        {%else%}
+        <div><a class='linkA'href='login'>Acceder<a/><a class='linkA' href='register'>Registrarse</a>
+        {%endif%}
+      </div>
+    </header>
+        <div class="chat-box-body messages-list">       
+          <div class="message response">
+            <div class="message-text">
+              <div>
+                <b>Chat Bot</b>
+              </div>
+              <div class="message-content">
+                Hola {{user.username}}, que medicamento buscas, que sintoma o sintomas presentas ?
+              </div>
+            </div>
+          </div>
+        </div>
+    <form class="message-form" methof="post">
+      {% csrf_token %}
+      <div class="chat-box-footer">
+        <input type="text" class="message-input" placeholder="Escribe tu consulta o tus sintomas">
+        <button type="submit" class="btn btn-primary btn-send">Enviar</button>
+      </div>
+    </form>
+   </div>
+   <div class="derechos">
+    <p>Created by Coding Yanella y Anibal</p>
+  </div>
+{% endblock %}

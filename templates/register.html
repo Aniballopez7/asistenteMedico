@@ -1,0 +1,54 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <div class="wrapper">
+      <form method="post" class="form">
+        {% csrf_token %}
+        <h1 class="title">Registro</h1>
+        {% if error_message %}
+        <div class="alert" role="alert">{{ error_message }}</div>
+        {% endif %}
+        <div class="inp">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="input"
+            placeholder="Usuario"
+          />
+        </div>
+        <div class="inp">
+          <input
+            type="text"
+            name="email"
+            id="email"
+            class="input"
+            placeholder="Correo"
+          />
+        </div>
+        <div class="inp">
+          <input
+            type="password"
+            name="password1"
+            id="password1"
+            class="input"
+            placeholder="Contraseña"
+          />
+        </div>
+        <div class="inp">
+          <input
+            type="password"
+            name="password2"
+            id="password2"
+            class="input"
+            placeholder="Confirmar Contraseña"
+          />
+        </div>
+        <button class="submit">Registrarse</button>
+        <p class="footer">
+          ¿Ya tienes cuenta?
+          <a href="login" class="link">Iniciar sesion</a>
+        </p>
+      </form>
+    </div>
+{% endblock %}
