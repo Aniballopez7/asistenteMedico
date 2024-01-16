@@ -75,6 +75,9 @@ body {
     margin-top: 30px;
     letter-spacing: 0.5px;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .link {
@@ -85,6 +88,7 @@ body {
     -moz-transition: all 300ms;
     -ms-transition: all 300ms;
     -o-transition: all 300ms;
+    margin-bottom: 10px;
 }
 .link:hover {
     color: #99279b;
@@ -97,4 +101,8 @@ body {
   border-color: #f5c6cb;
   padding: 1rem;
   border-radius: 15px;
+}
+
+p{
+    margin-bottom: 10px;
 }

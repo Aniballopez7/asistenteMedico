@@ -3,18 +3,16 @@ from django.http import JsonResponse
 import openai
 from django.contrib import auth
 from django.contrib.auth.models import User
-from .models import Chat
-from django.utils import timezone
 
 
-openai_api_key = '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'
+openai_api_key = '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'
 openai.api_key = openai_api_key
 
 def ask_openai(message):
     response = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo-1106",
         messages=[
-            {"role": "system", "content": "Hola, soy tu asistente médico virtual. Estoy aquí para ayudarte con información sobre tus síntomas. ¿Podrías contarme más sobre lo que estás experimentando? Además, ¿hay alguna condición médica preexistente o medicamento que estés tomando actualmente que deba tener en cuenta para proporcionarte las mejores recomendaciones posibles"},
+            {"role": "system", "content": "Soy tu asistente médico virtual, aquí para brindarte información sobre tus síntomas. ¿Podrías compartir más detalles sobre lo que estás experimentando? También, ¿tienes alguna condición médica preexistente o estás tomando algún medicamento en este momento que deba tener en cuenta para ofrecerte las mejores recomendaciones?Quiero resaltar que puedo proporcionarte opciones que incluyan recetas naturales venezolanas, así como medicamentos y tratamientos disponibles en Venezuela. Estaré enfocado en brindarte información relevante y accesible para tu ubicación. Si es necesario, puedo sugerir hasta tres medicamentos de origen natural (si existen) y tres de origen de venta libre, cuyos componentes sean similares o que tengan propiedades efectivas para tratar los síntomas que estás experimentando. ¿En qué más puedo ayudarte"},
             {"role": "user", "content": message},
         ]
     )
